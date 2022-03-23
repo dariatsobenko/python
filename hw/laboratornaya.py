@@ -35,8 +35,8 @@ while True:
     for df in directories[py]:
      if df == wr['number']:
       ret = py
-  print('№: ', wr['number'], ', тип: ', wr['type'], ', владелец: ', wr['name'], ', полка хранения:', ret)
-  if a == 'ads':
+   print('№: ', wr['number'], ', тип: ', wr['type'], ', владелец: ', wr['name'], ', полка хранения:', ret)
+ if a == 'ads':
   er = input('Введите номер полки: ')
   print('Результат:')
   if er in directories.keys():
@@ -105,5 +105,75 @@ while True:
       if tyu == rty['number']:
        jkl = zxc
     print('№: ', rty['number'], ', тип: ', rty['type'], ', владелец: ', rty['name'], ', полка хранения:', jkl)
+ if a == 'd':
+  nom = input('Введите номер документа: ')
+  print('Результат: ')
+  hjr = 0
+  for gr in documents:
+   if gr['number'] == nom:
+    hjr = 1
+  if hjr == 0:
+   print('Документ не найден в базе.')
+   print('Текущий список документов:')
+   for dfgs in documents:
+    for esrs in directories:
+     for sads in directories[esrs]:
+      if sads == dfgs['number']:
+       hjgs = esrs
+    print('№: ', dfgs['number'], ', тип: ', dfgs['type'], ', владелец: ', dfgs['name'], ', полка хранения:', hjgs)
+  else:
+   for rtes in documents:
+    if rtes['number'] == nom:
+     documents.remove(rtes)
+   print('Документ удален.')
+   print('Текущий список элементов:')
+   for rems in documents:
+    for wqe in directories:
+     for der in directories[wqe]:
+      if der == rems['number']:
+       dsaw = wqe
+    print('№: ', rems['number'], ', тип: ', rems['type'], ', владелец: ', rems['name'], ', полка хранения:', dsaw)
+ if a == 'm':
+  uy = input('Введите номер документа: ')
+  plk = input('Введите номер полки: ')
+  print('Результат: ')
+  nrt = 0
+  for ity in directories:
+   if ity == plk:
+    nrt = 1
+  if nrt == 0:
+   rtte = []
+   for rew in directories:
+    rtte.append(rew)
+   rtp = ','.join(rtte)
+   print('Такой полки не существует. Текущий перечень полок: ', rtp)
+  else:
+   jkf = 0
+   for grs in documents:
+    if grs['number'] == uy:
+     jkf = 1
+   if jkf == 0:
+    print('Документ не найден в базе.')
+    print('Текущий список документов:')
+    for tyr in documents:
+     for vbn in directories:
+      for erty in directories[vbn]:
+       if erty == tyr['number']:
+        dsaws = vbn
+     print('№: ', tyr['number'], ', тип: ', tyr['type'], ', владелец: ', tyr['name'], ', полка хранения:', dsaws)
+   else:
+    for tyur in directories:
+     for tre in directories[tyur]:
+      if  tre == uy:
+       directories[tyur].remove(uy)
+       directories[plk].append(uy)
+    print('Документ перемещен.')
+    print('Текущий список документов: ')
+    for tyrw in documents:
+     for vbnw in directories:
+      for ertyw in directories[vbnw]:
+       if ertyw == tyrw['number']:
+        dsawsw = vbnw
+     print('№: ', tyrw['number'], ', тип: ', tyrw['type'], ', владелец: ', tyrw['name'], ', полка хранения:', dsawsw)
  if a == 'q':
   break
